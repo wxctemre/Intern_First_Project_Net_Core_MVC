@@ -1,0 +1,130 @@
+﻿<h2>Personel Güncelleme Ekranı</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-7 col-sm-12 mr-2 mt-2 py-5 shadow-lg p-3 mb-5 bg-white rounded">
+            <form id="PersonelForm">
+                <div class="form-group row mb-5">
+                    <div class="col-md-4">
+                        <label for="PersonelAd" class="col-md-12 col-form-label mb-1">
+                            <p class="text-sm-end mb-1">Personel Adı:</p>
+                        </label>
+                        <div class="container-fluid">
+                            <input type="text" class="form-control" name="ad" id="PersonelAd" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="PersonelSoyAd" class="col-md-12 col-form-label mb-1">
+                            <p class="text-sm-end mb-1">Personel Soyadı:</p>
+                        </label>
+                        <div class="container-fluid">
+                            <input type="text" class="form-control" id="PersonelSoyad" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="PersonelTelefon" class="col-12 col-form-label mb-1">
+                            <p class="text-sm-end mb-1">Personel Telefon:</p>
+                        </label>
+                        <div class="container-fluid">
+                            <input type="text" class="form-control" id="PersonelTelefon" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="PersonelDogumTarihi" class="col-12 col-form-label mb-1">
+                            <p class="text-sm-end mb-1">Personel Doğum Tarihi:</p>
+                        </label>
+                        <div class="col-12 container-fluid">
+                            <input type="date" class="form-control" id="PersonelDogumTarihi" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="PersonelEmail" class="col-12 col-form-label mb-1">
+                            <p class="text-sm-end mb-1">Personel Email:</p>
+                        </label>
+                        <div class="col-12 container-fluid">
+                            <input type="email" class="form-control" id="PersonelEmail" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="Sifre" class="col-12 col-form-label mb-1">
+                            <p class="text-sm-end mb-1">Şifre:</p>
+                        </label>
+                        <div class="col-12 container-fluid">
+                            <input type="password" class="form-control" id="Sifre" />
+                        </div>
+                    </div>
+                    <div class="col-12 mb-3"></div>
+                    <div id="form-container">
+                        <div id="veritabani_1" class="form-school row mb-5 justify-content-center">
+                            <div class="col-sm-8 col-md-10 border rounded">
+                                <div class="row mb-4 mt-2">
+                                    <div class="col-sm-12 col-md-8">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="row">
+                                                    <label for="okul" class="col-sm-12 col-form-label">
+                                                        <p class="text-sm-center">Mezun Okulunuz</p>
+                                                    </label>
+                                                    <div class="col-sm-12 container-fluid">
+                                                        <select class="okul form-control" id="veritabaniokul_1"><option value="1"></option></select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="row">
+                                                    <label for="mezuniyet" class="col-sm-12 col-form-label">
+                                                        <p class="text-sm-center">Mezuniyet Yılı</p>
+                                                    </label>
+                                                    <div class="col-sm-12 container-fluid">
+                                                        <input type="text" class="form-control" id="veritabaniokulmezuniyet_1">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-12">
+                                        <div class="m-0">
+                                            <p>Okul Fotoğrafı Yüklemek Butona Tıklayın Seçin</p>
+                                        </div>
+                                        <input type="file" class="form-control-file veritabanischoolfileinput" style="visibility:hidden" multiple="">
+                                        <input type="button" class="btn w-50 h-25 bg-dark text-white mb-4" value="seç" onclick="document.querySelector('.veritabanischoolfileinput').click();">
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="row veritabanischoolarea">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-1">
+                                <button type="button" class="btn btn-success btn-sm mb-2" onclick="cloneForm(this)">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="d-flex justify-content-end">
+                    <input class="btn btn-primary"   value="Guncelle" id="EditPersonel" onclick="Guncelleme()">
+                </div>
+            </form>
+        </div>
+        <div class="col-md-3 col-sm-12 mt-2 py-5 h-50 shadow-lg mb-5 bg-white rounded">
+            <form id="fotoid">
+                <div class="col-sm-12">
+                    <div id="previewArea" class="row mb-4">
+                        <img id="previewImage" src="#" alt="Fotoğraf Önizleme" style="display:none;" />
+                        <div id="defaultText">
+                            <p>Fotoğraf Yüklemek İçin Dosya Seçin</p>
+                        </div>
+                    </div>
+                    <input type="file" class="form-control-file" id="photoUpload" style="visibility:hidden" multiple />
+                    <input type="button" for="photoUpload" id="photojs" class="btn w-25 h-25 bg-dark text-white" value="seç" onclick="document.getElementById('photoUpload').click();" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="~/js/guncelleme.js"></script>
+ 
+
+<script src="~/js/verigetir.js"></script>
+
+<script src="~/js/fotografonizleme.js"></script>
